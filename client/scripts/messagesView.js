@@ -2,20 +2,28 @@
 // responsible for displaying messages.
 
 var MessagesView = {
-
-  $chats: $('#chats'),
+  $chats: $("#chats"),
 
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    // we assemble all the messages with the messageview template
   },
 
   render: function() {
     // TODO: Render _all_ the messages.
+    // $('#chats')
+
+    let html = "";
+
+    for (let i = 0; i < Messages._data.length; i++) {
+      html += MessageView.render(Messages._data[i]);
+    }
+    $("#chats").append(html);
   },
 
   renderMessage: function(message) {
-    $('body').append(messageView);    
+    // $('body').append(messageView);
     // TODO: Render a single message.
   },
 
@@ -23,5 +31,4 @@ var MessagesView = {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
   }
-
 };

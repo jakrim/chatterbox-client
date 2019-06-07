@@ -2,9 +2,8 @@
 // responsible for displaying and selecting rooms.
 
 var RoomsView = {
-
-  $button: $('#rooms button'),
-  $select: $('#rooms select'),
+  $button: $("#rooms button"),
+  $select: $("#rooms select"),
 
   initialize: function() {
     // TODO: Perform any work which needs to be done
@@ -22,5 +21,4 @@ var RoomsView = {
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
   }
-
 };

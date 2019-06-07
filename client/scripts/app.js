@@ -3,10 +3,9 @@
 // and begin making requests to the Parse API for data.
 
 var App = {
+  $spinner: $(".spinner img"),
 
-  $spinner: $('.spinner img'),
-
-  username: 'anonymous',
+  username: "anonymous",
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -21,16 +20,21 @@ var App = {
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
-    
+    //setinterval
   },
 
-  fetch: function(callback = ()=>{}) {
-    Parse.readAll((data) => {
+  fetch: function(callback = () => {}) {
+    Parse.readAll(data => {
       // examine the response from the server request:
-      console.log(data);
+      // let obj = {username: "brian", text: "This is a message", roomname: "whatever"}
+      Messages.cleanData(data);
+
+      MessagesView.render();
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
+
+      // call render
 
       callback();
     });
@@ -42,7 +46,7 @@ var App = {
   },
 
   stopSpinner: function() {
-    App.$spinner.fadeOut('fast');
+    App.$spinner.fadeOut("fast");
     FormView.setStatus(false);
   }
 };
