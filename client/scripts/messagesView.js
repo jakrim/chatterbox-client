@@ -15,6 +15,7 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
+    $('body').append(messageView);    
     // TODO: Render a single message.
   },
 
