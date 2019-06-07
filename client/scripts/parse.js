@@ -19,7 +19,7 @@ var Parse = {
       // This is the url you should use to communicate with the parse API server.
       url: 'http://parse.nyc.hackreactor.com/chatterbox/classes/messages',
       type: 'POST',
-      data: JSON.stringify({}),
+      data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent');
