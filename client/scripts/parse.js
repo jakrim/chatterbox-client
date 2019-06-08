@@ -18,7 +18,8 @@ var Parse = {
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
-        console.log('chatterbox: Message sent');
+        console.log('chatterbox: Message sent ParseCreate');
+        successCB();
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
@@ -26,9 +27,6 @@ var Parse = {
       }
     });
     
-
-
-
   },
 
   readAll: function(successCB, errorCB = null) {

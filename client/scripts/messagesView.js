@@ -19,11 +19,14 @@ var MessagesView = {
     for (let i = 0; i < Messages._data.length; i++) {
       html += MessageView.render(Messages._data[i]);
     }
+    $("#chats").empty();
     $("#chats").append(html);
   },
 
   renderMessage: function(message) {
-    // $('body').append(messageView);
+    // everything has to be  inside _data
+    
+    MessageView.render(message);
     // TODO: Render a single message.
   },
 

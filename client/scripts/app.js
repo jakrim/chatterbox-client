@@ -26,10 +26,13 @@ var App = {
   fetch: function(callback = () => {}) {
     Parse.readAll(data => {
       // examine the response from the server request:
-      // let obj = {username: "brian", text: "This is a message", roomname: "whatever"}
+      Messages._data = [];
+      Rooms._data = [];
+      Rooms.filterData(data);
       Messages.cleanData(data);
 
-      MessagesView.render();
+
+      //MessagesView.render();
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.

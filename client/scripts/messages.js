@@ -14,7 +14,10 @@ var Messages = {
       temp.text = storage[i]["text"];
       temp.roomname = storage[i]["roomname"];
       Messages._data.push(temp);
+      
     }
+
+    MessagesView.render();
   }
 
   // TODO: Define methods which allow you to retrieve from,

@@ -22,8 +22,9 @@ var FormView = {
       roomname: null
     };
 
-    Parse.create(newMessage);
-
+    Parse.create(newMessage, () => {
+      App.fetch();
+    });
   },
 
   setStatus: function(active) {
