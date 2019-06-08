@@ -7,11 +7,15 @@ var Rooms = {
   // TODO: Define how you want to store the list of rooms
   _data: [],
 
-  // storage = data.results,
-
-  // filterData: function() {
-  //   _data = storage.filter(el => el.roomname);
-  // }
+  filterData: function(data) {
+    storage = data.results;
+    Rooms.data = [];
+    for (let i = 0; i < storage.length; i++) {
+      let temp = {};
+      temp.roomname = storage[i]["roomname"];
+      Rooms._data.push(temp);
+    }
+  }
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.

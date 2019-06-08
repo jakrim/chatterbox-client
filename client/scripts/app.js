@@ -27,7 +27,7 @@ var App = {
     Parse.readAll(data => {
       // examine the response from the server request:
       Messages._data = [];
-      Rooms._data = [];
+      //Rooms._data = [];
       Rooms.filterData(data);
       Messages.cleanData(data);
 
