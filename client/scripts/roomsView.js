@@ -32,5 +32,13 @@ var RoomsView = {
 
   handleClick: function (event) {
     // TODO: Handle the user clicking the "Add Room" button.
-  }
+    let clickedRoomName = event.target.innerText;
+    
+    App.fetchThenFilterRoom(clickedRoomName);
+
+
+  },
+
+  
+
 };

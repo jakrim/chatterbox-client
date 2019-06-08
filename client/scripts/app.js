@@ -3,9 +3,9 @@
 // and begin making requests to the Parse API for data.
 
 var App = {
-  $spinner: $(".spinner img"),
+  $spinner: $('.spinner img'),
 
-  username: "anonymous",
+  username: 'anonymous',
 
   initialize: function () {
     App.username = window.location.search.substr(10);
@@ -14,9 +14,14 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+
+
+    // Fetch batch of messages on interval
+    setInterval(function () {
+      App.fetch(App.stopSpinner);
+    }, 4000);
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
@@ -27,18 +32,20 @@ var App = {
     Parse.readAll(data => {
       // examine the response from the server request:
       Messages._data = [];
-      Rooms.filterData(data);
       Messages.cleanData(data);
-
-
-      //MessagesView.render();
-
-      // TODO: Use the data to update Messages and Rooms
-      // and re-render the corresponding views.
-
-      // call render
-
+      Rooms.filterData(data);
       callback();
+    });
+  },
+
+
+  fetchThenFilterRoom: function (clicked) {
+    Parse.readAll(data => {
+      Messages._data = [];
+      let filtered = {};
+      filtered.results = data.results.filter(e => e['roomname'] === clicked);
+      Messages.cleanData(filtered);
+
     });
   },
 
@@ -48,7 +55,7 @@ var App = {
   },
 
   stopSpinner: function () {
-    App.$spinner.fadeOut("fast");
+    App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }
 };

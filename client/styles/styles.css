@@ -63,6 +63,7 @@ form input[type=text] {
     padding: 5px;
     margin-bottom: 5px;
     background-color: #eee;
+    word-wrap: break-word;
 }
 
 .chat .username {
@@ -88,3 +89,6 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+.roomname {
+    padding: 0px 0px 10px 0px;
+}

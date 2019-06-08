@@ -10,6 +10,9 @@ var MessageView = {
         <div class="username"> 
     username: <%- username %>
         </div>
+        <div class="roomname">
+        <b>Room:</b> <a href="#" onClick="RoomsView.handleClick(event)"> <%- roomname %></a>
+        </div>
         <div class="text">
           <%- text %>
         </div>

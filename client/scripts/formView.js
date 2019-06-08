@@ -19,7 +19,7 @@ var FormView = {
     let newMessage = {
       username: App.username,
       text: message.value,
-      roomname: null
+      roomname: addRoom.value
     };
 
     Parse.create(newMessage, () => {
