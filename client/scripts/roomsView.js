@@ -5,20 +5,32 @@ var RoomsView = {
   $button: $("#rooms button"),
   $select: $("#rooms select"),
 
-  initialize: function() {
+  initialize: function () {
     // TODO: Perform any work which needs to be done
     // when this view loads.
   },
 
-  render: function() {
-    // TODO: Render out the list of rooms.
+  createTemplate: _.template(
+    `<option value="<%- roomname %>"> <%- roomname %></option>"`
+  ),
+
+
+  render: function () {
+    let html = "";
+    for (let i = 0; i < Rooms._data.length; i++) {
+      if (Rooms._data[i]["roomname"] !== undefined) {
+        html += RoomsView.createTemplate(Rooms._data[i]);
+      }
+
+    }
+    this.$select.append(html);
   },
 
-  handleChange: function(event) {
+  handleChange: function (event) {
     // TODO: Handle a user selecting a different room .
   },
 
-  handleClick: function(event) {
+  handleClick: function (event) {
     // TODO: Handle the user clicking the "Add Room" button.
   }
 };

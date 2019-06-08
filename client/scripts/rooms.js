@@ -7,14 +7,15 @@ var Rooms = {
   // TODO: Define how you want to store the list of rooms
   _data: [],
 
-  filterData: function(data) {
+  filterData: function (data) {
     storage = data.results;
-    Rooms.data = [];
+    Rooms._data = [];
     for (let i = 0; i < storage.length; i++) {
       let temp = {};
-      temp.roomname = storage[i]["roomname"];
+      temp["roomname"] = storage[i]["roomname"];
       Rooms._data.push(temp);
     }
+    RoomsView.render();
   }
 
   // TODO: Define methods which allow you to add rooms, update the list,
