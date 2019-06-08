@@ -8,11 +8,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // TODO: send a request to the Parse API to save the message
-    // var message = {
-    //   usename: ,
-    //   text: ,
-    //   roomname:
-    // }
+
 
 
     $.ajax({
